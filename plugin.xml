@@ -1,0 +1,63 @@
+
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="io-airbridge-cordova" version="0.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+<name>AirBridgePlugin</name>
+<description>
+에어브릿지 Cordova Plugin은 에어브릿지에서 제공하는 심플링크 통계 기능(설치, 실행, 목표달성, 잔존율)을 이용 할 수 있도록 도와주는 라이브러리입니다. 
+심플링크 서비스의 모든 기능을 사용하기 위해 반드시 필요합니다.
+</description>
+<author>
+ab180
+</author>
+
+<keywords>airbridge,simplelink,install attribution</keywords>
+<license>MIT License</license>
+
+<js-module name="AirBridgePlugin" src="www/AirBridgePlugin.js">
+<runs/>
+<clobbers target="AirBridgePlugin" />
+</js-module>
+
+<preference name="pluginVersion" default="0.0.1" />
+
+<platform name="ios">
+    <config-file parent="/*" target="config.xml">
+        <feature name="AirBridgePlugin">
+            <param name="ios-package" value="AirBridgePlugin" />
+            <param name="onload" value="true" />
+        </feature>
+    </config-file>
+    <source-file src="src/ios/AirBridgePlugin.m" />
+    <framework src="src/ios/frameworks/AirBridge.framework" custom="true" />
+    <!--<framework src="SafariServices.framework"/>
+    <framework src="CoreSpotlight.framework"/>
+    <framework src="MobileCoreServices.framework"/>-->
+</platform>
+
+<platform name="android">
+    <config-file parent="/*" target="res/xml/config.xml">
+        <feature name="AirBridgePlugin">
+            <param name="android-package" value="io.airbridge.cordova.AirBridgePlugin" />
+        </feature>
+    </config-file>
+
+    <config-file parent="/manifest" target="AndroidManifest.xml">
+        <uses-permission android:name="android.permission.INTERNET" />
+        <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+        <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    </config-file>
+    
+    <config-file parent="/manifest/application" target="AndroidManifest.xml">
+        <receiver android:name="io.airbridge.DeferredLinkReceiver" android:exported="true">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER" />
+            </intent-filter>
+        </receiver>
+    </config-file>
+        
+    <source-file src="src/android/AirBridgePlugin.java" target-dir="src/io/airbridge/cordova/AirBridgePlugin" />
+    <framework src="io.airbridge:sdk-android:0.8.+" />
+</platform>
+
+</plugin>
+
