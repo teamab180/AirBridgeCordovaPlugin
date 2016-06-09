@@ -1,0 +1,30 @@
+{
+  "name": "cordova-plugin-airbridge",
+  "version": "0.0.2",
+  "description": "\n에어브릿지 Cordova Plugin은 에어브릿지에서 제공하는 심플링크 통계 기능(설치, 실행, 목표달성, 잔존율)을 이용 할 수 있도록 도와주는 라이브러리입니다. \n심플링크 서비스의 모든 기능을 사용하기 위해 반드시 필요합니다.\n",
+  "cordova": {
+    "id": "cordova-plugin-airbridge",
+    "platforms": [
+      "ios",
+      "android"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/teamab180/AirBridgeCordovaPlugin.git"
+  },
+  "keywords": [
+    "airbridge",
+    "simplelink",
+    "install attribution",
+    "ecosystem:cordova",
+    "cordova-ios",
+    "cordova-android"
+  ],
+  "author": "ab180",
+  "license": "MIT License",
+  "bugs": {
+    "url": "https://github.com/teamab180/AirBridgeCordovaPlugin/issues"
+  },
+  "homepage": "https://github.com/teamab180/AirBridgeCordovaPlugin#readme"
+}
