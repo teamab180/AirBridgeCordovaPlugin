@@ -41,6 +41,8 @@ public class AirBridgePlugin extends CordovaPlugin {
                 userToken
             );
             
+            AirBridge.noticeSdkInstallFrom3rdPartySDK("Android","Cordova 0.0.3");
+            
             final CallbackContext savedCallbackContext = callbackContext;
             AirBridge.addSimpleLinkHandler(new DeepLinkHandler() {
                 @Override
