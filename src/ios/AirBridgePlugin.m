@@ -26,7 +26,7 @@
     AirBridge *instance = [AirBridge getInstance:userToken appToken:appToken];
     
     if ([ABCommon debugMode]) {
-        [instance noticeSDKInstall:@"Cordova 0.0.1"];     
+        [instance noticeSDKInstall:@"Cordova 0.0.3"];
     }
     
     [instance registSimpleLinkRoutingCallback:^(NSString *routing, NSDictionary *params, NSError *error) {
